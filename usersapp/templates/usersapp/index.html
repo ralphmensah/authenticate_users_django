@@ -1,0 +1,18 @@
+{% if messages %}
+{% for message in messages %}
+    {{message}}
+{% endfor %}
+{% endif%}
+
+
+
+{% if user.is_authenticated %}
+<h1>Hello {{user.username}},Welcome to the Home Page page</h1>
+    <a href="{% url 'logout' %}">logout</a>
+    <a href="{% url 'profile' %}">profile</a>
+{% else %}
+<h1>Hello,welcome to the Home Page page</h1>
+ 
+    <a href="{% url 'register' %}">register</a>
+    <a href="{% url 'login' %}">login</a>
+{% endif %}

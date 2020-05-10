@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+<div>
+{% if messages %}
+{% for message in messages %}
+    {{message}}
+{% endfor %}
+{% endif%}
+<h5>Register Here!</h5>
+<form method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit">Register</button>
+</form>
+<p>Have an account?<a href="{% url 'login' %}">Sign In</a></p>
+</div>
